@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hello from acquisitions!');
+res.status(200).send('Hello from the server in AWS EC2!');
 });
 
 app.get('/health', (req, res) => {
@@ -31,7 +31,7 @@ app.get('/health', (req, res) => {
 app.get('/api', (req, res) => {
   res.status(200).json({
     status: 'OK',
-    message: 'Acquisitions API is running...',
+    message: 'Server is running...',
   });
 });
 

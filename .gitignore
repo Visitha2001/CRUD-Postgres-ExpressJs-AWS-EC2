@@ -3,6 +3,7 @@ node_modules
 
 # dotenv
 .env
+.env.prod
 
 # logs
 logs
