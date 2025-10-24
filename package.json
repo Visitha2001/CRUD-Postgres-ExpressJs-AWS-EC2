@@ -1,0 +1,26 @@
+{
+  "name": "crud-postgres-expressjs-aws-ec2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "imports": {
+    "#/*": "./src/*",
+    "#config/*": "./config/*",
+    "#models/*": "./models/*",
+    "#controllers/*": "./controllers/*",
+    "#routes/*": "./routes/*"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
