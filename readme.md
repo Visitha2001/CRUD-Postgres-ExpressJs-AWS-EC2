@@ -125,6 +125,10 @@ PORT=3000(app port)
 npm run dev
 ```
 
+- add port 3000 to ec2 security group
+- navigate to ec2 console and EC2 > Security Groups > instance security group
+- add port 3000 to security group
+
 ### now close the working gitbash and open a new gitbash and run the following commands after connecting to ec2 instance
 ```bash
 sudo npm install pm2 -g
@@ -133,6 +137,11 @@ sudo npm install pm2 -g
 ## run the application
 ```bash
 pm2 start src/index.js --name crud-app
+```
+
+## check the status of the application
+```bash
+pm2 status crud-app
 ```
 
 ## to see logs
@@ -154,3 +163,41 @@ pm2 stop crud-app
 ```bash
 pm2 delete crud-app
 ```
+
+# caddy setup(server reverse proxy)
+URL : https://caddyserver.com/docs/install#debian-ubuntu-raspbian
+
+## start caddy
+```bash
+sudo systemctl start caddy
+```
+
+## check if caddy is running
+```bash
+curl localhost
+```
+
+## enable caddy
+```bash
+sudo systemctl enable caddy
+```
+
+## open caddy file
+```bash
+sudo vim /etc/caddy/Caddyfile
+```
+
+## add the following
+- press ins key to start editing
+- comment - set root * /usr/share/caddy
+- comment - file_server
+- uncomment - reverse_proxy localhost:8080
+- change port 8080 to 3000
+
+- save and exit using press escape key then type :wq and press enter
+
+## restart caddy
+```bash
+sudo systemctl restart caddy
+```
+- now open your browser and navigate to http://54.158.243.160/
