@@ -55,6 +55,9 @@ jobs:
           envs: EC2_PATH,PM2_NAME,NODE_ENV
           script: |
             set -e
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
             # Ensure directory exists and set ownership to current user
             mkdir -p "$EC2_PATH"
