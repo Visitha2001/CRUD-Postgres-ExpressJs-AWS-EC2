@@ -201,3 +201,17 @@ sudo vim /etc/caddy/Caddyfile
 sudo systemctl restart caddy
 ```
 - now open your browser and navigate to http://54.158.243.160/
+
+## github actions
+- create a new file named .github/workflows/deploy.yml
+- Go to GitHub repo > Settings > Secrets and variables > Actions > New repository secret.
+- Add the following secrets one by one:
+    ```
+    EC2_HOST = 
+    EC2_USER = ubuntu
+    EC2_PORT = 22
+    EC2_PATH = ~/CRUD-Postgres-ExpressJs-AWS-EC2
+    PM2_NAME = crud-app
+    NODE_ENV = production
+    EC2_KEY = paste the entire PEM private key contents (BEGIN/END lines included)
+    ```
